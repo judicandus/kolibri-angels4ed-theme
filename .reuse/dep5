@@ -1,0 +1,22 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: kolibri-endless-key-theme
+Upstream-Contact: Endless OS Foundation <maintainers@endlessos.org>
+Source: https://github.com/endlessm/kolibri-endless-key-theme
+
+Files: kolibri_endless_key_theme/static/*.png
+       kolibri_endless_key_theme/static/*.ico
+Copyright: 2023 Endless OS Foundation, LLC
+License: MIT
+
+Files: package.json
+Copyright: 2023 Endless OS Foundation, LLC
+License: MIT
+
+Files: README.rst
+Copyright: 2023 Endless OS Foundation, LLC
+License: MIT
+
+# Too simple to be copyrightable
+Files: .gitignore
+Copyright: 2023 Endless OS Foundation, LLC
+License: CC0-1.0
