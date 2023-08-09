@@ -48,5 +48,10 @@ class EndlessKeyThemeHook(theme_hook.ThemeHook):
                     "content_type": "image/png",
                     "size": "256x256",
                 },
+                {
+                    "src": static("android-chrome-512x512.png"),
+                    "content_type": "image/png",
+                    "size": "512x512",
+                },
             ],
         }
