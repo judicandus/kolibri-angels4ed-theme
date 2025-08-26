@@ -1,0 +1,71 @@
+/* ===========================
+   Angels for Education Theme
+   Primary: #334462
+   Secondary: #ffcc00
+   =========================== */
+
+/* App bar (top navigation) */
+.core-app-bar {
+  background-color: #334462 !important;
+  color: #ffffff !important;
+}
+
+/* Buttons */
+.k-button,
+.k-button--primary {
+  background-color: #334462 !important;
+  border-color: #334462 !important;
+  color: #ffffff !important;
+}
+.k-button--primary:hover {
+  background-color: #2a3750 !important; /* darker shade on hover */
+}
+.k-button--secondary {
+  background-color: #ffcc00 !important;
+  border-color: #ffcc00 !important;
+  color: #222 !important;
+}
+.k-button--secondary:hover {
+  background-color: #e6b800 !important; /* slightly darker gold */
+}
+
+/* Links */
+a, .link {
+  color: #334462 !important;
+}
+a:hover, .link:hover {
+  color: #2a3750 !important;
+  text-decoration: underline;
+}
+
+/* Page background */
+body {
+  background-color: #f5f7fa !important;
+  font-family: "Open Sans", "Noto Sans", sans-serif !important;
+  color: #222 !important;
+}
+
+/* Cards and panels */
+.k-card {
+  border: 1px solid #e0e6ed !important;
+  border-radius: 6px !important;
+  background-color: #ffffff !important;
+}
+.k-card__header {
+  background-color: #334462 !important;
+  color: #ffffff !important;
+}
+
+/* Footer */
+.core-footer {
+  background-color: #334462 !important;
+  color: #ffffff !important;
+  padding: 1rem !important;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5 {
+  color: #334462 !important;
+  font-weight: 600;
+}
+

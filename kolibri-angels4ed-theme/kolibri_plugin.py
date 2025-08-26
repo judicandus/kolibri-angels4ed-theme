@@ -26,8 +26,8 @@ class EndlessKeyThemeHook(theme_hook.ThemeHook):
         # theme, so we have to duplicate it all here.
         return {
             "signIn": {
-                "background": static("background.jpg"),
-                "backgroundImgCredit": "Thomas Van Den Driessche",
+                "background": static("background.jpeg"),
+                "backgroundImgCredit": "Angels for Education",
                 "topLogo": {
                     "style": "padding-left: 64px; padding-right: 64px; margin-bottom: 8px; margin-top: 8px",
                 },
@@ -54,4 +54,5 @@ class EndlessKeyThemeHook(theme_hook.ThemeHook):
                     "size": "512x512",
                 },
             ],
+            "styles": [static("angels.css")],
         }

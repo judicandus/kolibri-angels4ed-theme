@@ -3,10 +3,11 @@
 include LICENSE
 include README.rst
 include requirements.txt
-recursive-exclude kolibri_endless_key_theme/* *pyc
-recursive-include kolibri_endless_key_theme/static *.*
-recursive-include kolibri_endless_key_theme/templates *.*
+recursive-exclude kolibri-angels4ed-theme/* *pyc
+recursive-include kolibri-angels4ed-theme/static *.*
+recursive-include kolibri-angels4ed-theme/templates *.*
 
-recursive-include kolibri_endless_key_theme/build *.json
-recursive-exclude kolibri_endless_key_theme/assets *
+recursive-include kolibri-angels4ed-theme/build *.json
+recursive-exclude kolibri-angels4ed-theme/assets *
+recursive-include kolibri-angels4ed-theme/static *
 
