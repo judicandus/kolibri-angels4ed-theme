@@ -12,35 +12,36 @@ class Angels4EdThemePlugin(KolibriPluginBase):
 class Angels4EdThemeHook(theme_hook.ThemeHook):
     @property
     def theme(self):
-        css_href = static(f"{APP}/kolibri_angels4ed_theme/angels.css")  # note the app-prefixed subfolder
-        icon512  = static(f"{APP}/kolibri_angels4ed_theme/android-chrome-512x512.png")
-        favicon  = static(f"{APP}/kolibri_angels4ed_theme/favicon.ico")
+        css_href = "/static/kolibri_angels4ed_theme/angels.css"
+        icon512  = "/static/kolibri_angels4ed_theme/android-chrome-512x512.png"
+        favicon  = "/static/kolibri_angels4ed_theme/favicon.ico"
 
-        # fallback injection: add <link> directly into <head>
+        # Fallback: forcibly inject our <link> (works on all Kolibri versions)
         head_html = (
-            f'<link rel="stylesheet" type="text/css" href="{css_href}"/>'
             f'<link rel="icon" type="image/x-icon" href="{favicon}"/>'
+            f'<link rel="stylesheet" type="text/css" href="{css_href}"/>'
+            # JS fallback: if not present, append again (defensive)
+            f'<script>(function(){{var h=document.head;'
+            f'if(!document.querySelector(\'link[href="{css_href}"]\')){{'
+            f'var l=document.createElement("link");l.rel="stylesheet";l.href="{css_href}";h.appendChild(l);}}'
+            f'}})();</script>'
         )
 
         return {
             "signIn": {
                 "background": static(f"{APP}/kolibri_angels4ed_theme/background.jpeg"),
                 "backgroundImgCredit": "Angels for Education",
-                "topLogo": {
-                    "src": icon512,
-                    "alt": "Angels for Education",
-                    "style": "width:120px; height:auto; margin: 12px auto;"
-                },
-                "title": "Angels for Education",
+                "topLogo": { "style": "padding-left:64px; padding-right:64px; margin:8px 0" },
+                # The “title” key may be ignored in some builds; we handle it in CSS below.
             },
             "logos": [
-                {"src": favicon, "content_type": "image/vnd.microsoft.icon", "size": "48x48"},
-                {"src": icon512, "content_type": "image/png", "size": "512x512"},
+                {"src": static(f"{APP}/kolibri_angels4ed_theme/favicon.ico"), "content_type": "image/vnd.microsoft.icon", "size": "48x48"},
+                {"src": static(f"{APP}/kolibri_angels4ed_theme/android-chrome-192x192.png"), "content_type": "image/png", "size": "192x192"},
+                {"src": static(f"{APP}/kolibri_angels4ed_theme/android-chrome-256x256.png"), "content_type": "image/png", "size": "256x256"},
+                {"src": static(f"{APP}/kolibri_angels4ed_theme/android-chrome-512x512.png"), "content_type": "image/png", "size": "512x512"},
             ],
-
-            # keep this for newer Kolibri (harmless if ignored)
+            # keep this for newer Kolibri versions (harmless if ignored)
             "styles": [css_href],
-
-            # add explicit head HTML for older versions
+            # guaranteed injection for older versions
             "headHTML": head_html,
         }
