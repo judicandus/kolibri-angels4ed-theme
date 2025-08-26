@@ -68,4 +68,46 @@ h1, h2, h3, h4, h5 {
   color: #334462 !important;
   font-weight: 600;
 }
+/* ===== Replace the center sign-in logo ===== */
+/* Hide the built-in Kolibri SVG/logo inside the sign-in card */
+.auth-page .auth-card svg,
+.auth-page .auth-card img[alt="Kolibri"],
+.auth-page .auth-card .ui-logo {
+  display: none !important;
+}
+
+/* Insert our own logo above the title */
+.auth-page .auth-card .ui-card__header::before {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 120px;
+  margin: 12px auto 4px auto;
+  background-image: url("/static/kolibri_angels4ed_theme/android-chrome-512x512.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ===== Replace the “Kolibri” heading text ===== */
+/* Hide the default word mark */
+.auth-page .auth-card .ui-card__title,
+.auth-page .auth-card h1 {
+  font-size: 0 !important;
+  line-height: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Inject our own accessible title after the logo */
+.auth-page .auth-card .ui-card__header::after {
+  content: "Angels for Education";
+  display: block;
+  text-align: center;
+  margin-top: 6px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #334462; /* your brand color */
+}
 
