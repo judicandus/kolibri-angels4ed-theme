@@ -12,9 +12,9 @@ class Angels4EdThemePlugin(KolibriPluginBase):
 class Angels4EdThemeHook(theme_hook.ThemeHook):
     @property
     def theme(self):
-        css_href = "/static/kolibri_angels4ed_theme/angels.css"
-        icon512  = "/static/kolibri_angels4ed_theme/android-chrome-512x512.png"
-        favicon  = "/static/kolibri_angels4ed_theme/favicon.ico"
+        css_href = static(f"{APP}/kolibri_angels4ed_theme/angels.css")
+        icon512 = static(f"{APP}/kolibri_angels4ed_theme/android-chrome-512x512.png")
+        favicon = static(f"{APP}/kolibri_angels4ed_theme/favicon.ico")
 
         # Fallback: forcibly inject our <link> (works on all Kolibri versions)
         head_html = (
