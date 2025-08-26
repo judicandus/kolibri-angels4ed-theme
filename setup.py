@@ -27,15 +27,11 @@ setup(
     packages=[package_name],
     package_dir={package_name: package_name},
     include_package_data=True,
+    package_data={package_name: ["static/*"]},   # <-- add this
     entry_points={
         "kolibri.plugins": "{pkg} = {pkg}".format(pkg=package_name),
     },
     license="MIT",
     zip_safe=False,
     keywords="kolibri",
-    classifiers=[
-        "Development Status :: 3 - Alpha",
-        "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python :: 3",
-    ],
 )

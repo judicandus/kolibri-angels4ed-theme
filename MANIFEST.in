@@ -1,4 +1,3 @@
 include LICENSE
 include README.rst
 recursive-include kolibri_angels4ed_theme/static *.*
-recursive-include kolibri_angels4ed_theme/templates *.*
