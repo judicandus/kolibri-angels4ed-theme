@@ -12,24 +12,35 @@ class Angels4EdThemePlugin(KolibriPluginBase):
 class Angels4EdThemeHook(theme_hook.ThemeHook):
     @property
     def theme(self):
+        css_href = static(f"{APP}/kolibri_angels4ed_theme/angels.css")  # note the app-prefixed subfolder
+        icon512  = static(f"{APP}/kolibri_angels4ed_theme/android-chrome-512x512.png")
+        favicon  = static(f"{APP}/kolibri_angels4ed_theme/favicon.ico")
+
+        # fallback injection: add <link> directly into <head>
+        head_html = (
+            f'<link rel="stylesheet" type="text/css" href="{css_href}"/>'
+            f'<link rel="icon" type="image/x-icon" href="{favicon}"/>'
+        )
+
         return {
             "signIn": {
-                "background": static(f"{APP}/background.jpeg"),
+                "background": static(f"{APP}/kolibri_angels4ed_theme/background.jpeg"),
                 "backgroundImgCredit": "Angels for Education",
-                # 👇 show your own logo at the top of the sign-in card
                 "topLogo": {
-                    "src": static(f"{APP}/android-chrome-512x512.png"),
+                    "src": icon512,
                     "alt": "Angels for Education",
                     "style": "width:120px; height:auto; margin: 12px auto;"
                 },
-                # 👇 try to change the heading below the logo
                 "title": "Angels for Education",
             },
             "logos": [
-                {"src": static(f"{APP}/favicon.ico"), "content_type": "image/vnd.microsoft.icon", "size": "48x48"},
-                {"src": static(f"{APP}/android-chrome-192x192.png"), "content_type": "image/png", "size": "192x192"},
-                {"src": static(f"{APP}/android-chrome-256x256.png"), "content_type": "image/png", "size": "256x256"},
-                {"src": static(f"{APP}/android-chrome-512x512.png"), "content_type": "image/png", "size": "512x512"},
+                {"src": favicon, "content_type": "image/vnd.microsoft.icon", "size": "48x48"},
+                {"src": icon512, "content_type": "image/png", "size": "512x512"},
             ],
-            "styles": [static(f"{APP}/angels.css")],
+
+            # keep this for newer Kolibri (harmless if ignored)
+            "styles": [css_href],
+
+            # add explicit head HTML for older versions
+            "headHTML": head_html,
         }
