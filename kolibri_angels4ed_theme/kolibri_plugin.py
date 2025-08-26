@@ -3,6 +3,8 @@ from kolibri.core import theme_hook
 from kolibri.plugins import KolibriPluginBase
 from kolibri.plugins.hooks import register_hook
 
+APP = "kolibri_angels4ed_theme"
+
 class Angels4EdThemePlugin(KolibriPluginBase):
     pass
 
@@ -12,18 +14,18 @@ class Angels4EdThemeHook(theme_hook.ThemeHook):
     def theme(self):
         return {
             "signIn": {
-                "background": static("background.jpeg"),
+                "background": static(f"{APP}/background.jpeg"),
                 "backgroundImgCredit": "Angels for Education",
                 "topLogo": {
                     "style": "padding-left:64px; padding-right:64px; margin:8px 0",
                 },
             },
             "logos": [
-                {"src": static("favicon.ico"), "content_type": "image/vnd.microsoft.icon", "size": "48x48"},
-                {"src": static("android-chrome-192x192.png"), "content_type": "image/png", "size": "192x192"},
-                {"src": static("android-chrome-256x256.png"), "content_type": "image/png", "size": "256x256"},
-                {"src": static("android-chrome-512x512.png"), "content_type": "image/png", "size": "512x512"},
+                {"src": static(f"{APP}/favicon.ico"), "content_type": "image/vnd.microsoft.icon", "size": "48x48"},
+                {"src": static(f"{APP}/android-chrome-192x192.png"), "content_type": "image/png", "size": "192x192"},
+                {"src": static(f"{APP}/android-chrome-256x256.png"), "content_type": "image/png", "size": "256x256"},
+                {"src": static(f"{APP}/android-chrome-512x512.png"), "content_type": "image/png", "size": "512x512"},
             ],
-            # Load your custom stylesheet
-            "styles": [static("angels.css")],
+            # Load your custom stylesheet (with app prefix)
+            "styles": [static(f"{APP}/angels.css")],
         }
