@@ -16,9 +16,14 @@ class Angels4EdThemeHook(theme_hook.ThemeHook):
             "signIn": {
                 "background": static(f"{APP}/background.jpeg"),
                 "backgroundImgCredit": "Angels for Education",
+                # 👇 show your own logo at the top of the sign-in card
                 "topLogo": {
-                    "style": "padding-left:64px; padding-right:64px; margin:8px 0",
+                    "src": static(f"{APP}/android-chrome-512x512.png"),
+                    "alt": "Angels for Education",
+                    "style": "width:120px; height:auto; margin: 12px auto;"
                 },
+                # 👇 try to change the heading below the logo
+                "title": "Angels for Education",
             },
             "logos": [
                 {"src": static(f"{APP}/favicon.ico"), "content_type": "image/vnd.microsoft.icon", "size": "48x48"},
@@ -26,6 +31,5 @@ class Angels4EdThemeHook(theme_hook.ThemeHook):
                 {"src": static(f"{APP}/android-chrome-256x256.png"), "content_type": "image/png", "size": "256x256"},
                 {"src": static(f"{APP}/android-chrome-512x512.png"), "content_type": "image/png", "size": "512x512"},
             ],
-            # Load your custom stylesheet (with app prefix)
             "styles": [static(f"{APP}/angels.css")],
         }
