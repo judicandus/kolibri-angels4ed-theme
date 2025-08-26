@@ -1,13 +1,4 @@
-# Copyright 2023 Endless OS Foundation, LLC
-# SPDX-License-Identifier: MIT
 include LICENSE
 include README.rst
-include requirements.txt
-recursive-exclude kolibri-angels4ed-theme/* *pyc
-recursive-include kolibri-angels4ed-theme/static *.*
-recursive-include kolibri-angels4ed-theme/templates *.*
-
-recursive-include kolibri-angels4ed-theme/build *.json
-recursive-exclude kolibri-angels4ed-theme/assets *
-recursive-include kolibri-angels4ed-theme/static *
-
+recursive-include kolibri_angels4ed_theme/static *.*
+recursive-include kolibri_angels4ed_theme/templates *.*
