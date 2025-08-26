@@ -110,4 +110,69 @@ h1, h2, h3, h4, h5 {
   font-weight: 600;
   color: #334462; /* your brand color */
 }
+/* ===== Brand colors ===== */
+:root {
+  --afe-primary: #334462;  /* Angels for Education */
+  --afe-accent : #ffcc00;  /* contrast */
+  --afe-light  : #f5f7fa;
+  --afe-dark   : #111;
+}
 
+/* ===== LOGIN CARD: replace logo + title ===== */
+/* Recolor the SVG “blob” & strokes shown in your snippet */
+svg.logo use[href="#blob-background"] { fill: var(--afe-accent) !important; }
+svg.logo use[href="#body"],
+svg.logo use[href="#right-wing-inner"],
+svg.logo use[href="#right-wing-middle"],
+svg.logo use[href="#right-wing-outer"],
+svg.logo use[href="#left-wing-inner"],
+svg.logo use[href="#left-wing-middle"],
+svg.logo use[href="#left-wing-outer"] { stroke: var(--afe-primary) !important; }
+
+/* Alternatively, hide the SVG and show our PNG instead */
+svg.logo { display: none !important; }
+.auth-page .auth-card .ui-card__header::before {
+  content: "";
+  display: block;
+  width: 120px; height: 120px;
+  margin: 12px auto 4px auto;
+  background-image: url("/static/kolibri_angels4ed_theme/android-chrome-512x512.png");
+  background-size: contain; background-repeat: no-repeat; background-position: center;
+}
+
+/* Replace “Kolibri” text under the logo */
+h1.kolibri-title { font-size: 0 !important; line-height: 0 !important; margin: 0 !important; }
+.auth-page .auth-card .ui-card__header::after {
+  content: "Angels for Education";
+  display: block; text-align: center;
+  font-size: 22px; font-weight: 700;
+  color: var(--afe-primary);
+  margin-top: 6px;
+}
+
+/* ===== APP BAR (top bar after login) ===== */
+.k-toolbar.app-bar {
+  background-color: var(--afe-primary) !important;
+  color: #fff !important;
+}
+.k-toolbar.app-bar svg { fill: #fff !important; }
+.k-toolbar.app-bar .button { color: #fff !important; }
+
+/* ===== SIDE NAV header (the yellow bar you saw) ===== */
+.side-nav-header {
+  background-color: var(--afe-accent) !important;
+  color: #000 !important;
+}
+
+/* ===== Links & buttons (general) ===== */
+.k-button, .k-button--primary {
+  background-color: var(--afe-primary) !important;
+  border-color: var(--afe-primary) !important;
+  color: #fff !important;
+}
+.k-button--secondary {
+  background-color: var(--afe-accent) !important;
+  border-color: var(--afe-accent) !important;
+  color: #222 !important;
+}
+a, .link { color: var(--afe-primary) !important; }
